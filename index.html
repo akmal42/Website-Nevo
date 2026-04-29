@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nevo Wear | Shop Clothing, Cosmetics & Shoes</title>
+  <meta name="description" content="Nevo Wear demo ecommerce website for clothing, cosmetics, and shoes.">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="offer-strip">Launch Offer: Flat 40% off selected styles + free shipping on demo orders</div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Nevo Wear home">
+      <img src="nevo-wear-logo.png" alt="Nevo Wear logo">
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#products" data-filter-jump="all">All Products</a>
+      <a href="#products" data-filter-jump="clothing">Clothing</a>
+      <a href="#products" data-filter-jump="cosmetics">Cosmetics</a>
+      <a href="#products" data-filter-jump="shoes">Shoes</a>
+      <a href="#new">Fresh Arrivals</a>
+      <a href="profile.html">Profile</a>
+      <div class="mega-menu" aria-label="Category menu preview">
+        <div>
+          <h3>Men</h3>
+          <a href="#products" data-filter-jump="clothing">Shirts</a>
+          <a href="#products" data-filter-jump="bottomwear">Jeans</a>
+          <a href="#products" data-filter-jump="shoes">Sneakers</a>
+        </div>
+        <div>
+          <h3>Women</h3>
+          <a href="#products" data-filter-jump="clothing">Topwear</a>
+          <a href="#products" data-filter-jump="cosmetics">Makeup</a>
+          <a href="#products" data-filter-jump="shoes">Heels</a>
+        </div>
+        <div>
+          <h3>Beauty</h3>
+          <a href="#products" data-filter-jump="cosmetics">Lipstick</a>
+          <a href="#products" data-filter-jump="cosmetics">Palettes</a>
+          <a href="#products" data-filter-jump="cosmetics">Glow Kits</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <label class="desktop-search" aria-label="Search Nevo Wear products">
+        <span class="search-icon" aria-hidden="true"></span>
+        <input type="search" placeholder="Search for products, brands and more" data-main-search>
+      </label>
+      <button class="icon-btn" type="button" aria-label="Search products" data-search-open>
+        <span class="search-icon" aria-hidden="true"></span>
+      </button>
+      <a class="profile-btn" href="profile.html">Login</a>
+      <button class="wishlist-btn" type="button" aria-label="Wishlist">Wishlist <span data-wishlist-count>0</span></button>
+      <a class="bag-btn" href="checkout.html" aria-label="Shopping bag">
+        Bag <span data-bag-count>0</span>
+      </a>
+      <button class="menu-btn" type="button" aria-label="Open menu" data-menu-toggle>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="brand-ticker" aria-label="Nevo Wear moving brand banner">
+      <div class="ticker-track">
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+        <span>NEVO WEAR</span>
+      </div>
+    </section>
+
+    <section class="myntra-strip" aria-label="Marketplace style benefits">
+      <article>
+        <strong>Free Shipping</strong>
+        <span>On every demo order</span>
+      </article>
+      <article>
+        <strong>Easy Returns</strong>
+        <span>7 day return preview</span>
+      </article>
+      <article>
+        <strong>Member Rewards</strong>
+        <span>Extra Nevo credits</span>
+      </article>
+      <article>
+        <strong>Style Match</strong>
+        <span>Looks curated for you</span>
+      </article>
+    </section>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Nevo Wear demo store</p>
+        <h1>Style, beauty, and shoes in one storefront.</h1>
+        <p>A client-ready ecommerce sample inspired by modern fashion catalog pages, built with real product sections and working demo interactions.</p>
+        <a class="primary-link" href="#products">Shop Collection</a>
+      </div>
+      <div class="hero-grid" aria-label="Featured sample photos">
+        <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=800&q=85" alt="Sample clothing fashion look">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=85" alt="Sample cosmetics products">
+        <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=85" alt="Sample sneakers product">
+      </div>
+    </section>
+
+    <section class="quick-categories" aria-label="Shop by category">
+      <button type="button" data-filter="all" class="category-pill active">View All</button>
+      <button type="button" data-filter="clothing" class="category-pill">Topwear</button>
+      <button type="button" data-filter="bottomwear" class="category-pill">Bottomwear</button>
+      <button type="button" data-filter="cosmetics" class="category-pill">Cosmetics</button>
+      <button type="button" data-filter="shoes" class="category-pill">Footwear</button>
+      <button type="button" data-filter="new" class="category-pill">Fresh Arrivals</button>
+    </section>
+
+    <section class="category-showcase" aria-label="Myntra style category cards">
+      <div class="showcase-head">
+        <p class="eyebrow">Shop by department</p>
+        <h2>Marketplace-style discovery</h2>
+      </div>
+      <div class="showcase-grid">
+        <a href="#products" data-filter-jump="clothing">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=85" alt="Men and women clothing category">
+          <span>Topwear</span>
+        </a>
+        <a href="#products" data-filter-jump="bottomwear">
+          <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=85" alt="Bottomwear category">
+          <span>Bottomwear</span>
+        </a>
+        <a href="#products" data-filter-jump="shoes">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=85" alt="Footwear category">
+          <span>Footwear</span>
+        </a>
+        <a href="#products" data-filter-jump="cosmetics">
+          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85" alt="Beauty and cosmetics category">
+          <span>Beauty</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="promo-tiles" id="new">
+      <article>
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=900&q=85" alt="Fresh clothing arrivals sample">
+        <span>Fresh Arrivals</span>
+      </article>
+      <article>
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85" alt="Beauty kit sample">
+        <span>Beauty Kits</span>
+      </article>
+      <article>
+        <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=85" alt="Footwear sample">
+        <span>Footwear Deals</span>
+      </article>
+    </section>
+
+    <section class="video-lookbook" aria-label="Demo video lookbook">
+      <div class="video-head">
+        <p class="eyebrow">Demo videos</p>
+        <h2>Motion previews for key categories.</h2>
+        <p>Short animated clips help the storefront feel more active for a client presentation.</p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <img src="demo-shirts.gif" alt="Animated demo video for Nevo Wear shirts">
+          <div>
+            <span>01</span>
+            <h3>Shirts & Topwear</h3>
+          </div>
+        </article>
+        <article class="video-card">
+          <img src="demo-shoes.gif" alt="Animated demo video for Nevo Wear shoes">
+          <div>
+            <span>02</span>
+            <h3>Shoes & Footwear</h3>
+          </div>
+        </article>
+        <article class="video-card">
+          <img src="demo-cosmetics.gif" alt="Animated demo video for Nevo Wear cosmetics">
+          <div>
+            <span>03</span>
+            <h3>Cosmetic Items</h3>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="collection" id="products">
+      <div class="breadcrumb">Home / Clothing / Nevo Wear View All</div>
+      <div class="collection-head">
+        <div>
+          <p class="eyebrow">Collection</p>
+          <h2>View All</h2>
+          <p><strong data-product-count>12</strong> Products</p>
+        </div>
+        <div class="collection-tools">
+          <button type="button" data-filter-toggle>Filter</button>
+          <label>
+            Sort by
+            <select data-sort>
+              <option value="featured">Featured</option>
+              <option value="low">Price Low to High</option>
+              <option value="high">Price High to Low</option>
+              <option value="new">New Arrivals</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="filters" data-filters>
+          <div class="filter-group">
+            <h3>Category</h3>
+            <label><input type="checkbox" value="clothing" data-check-filter> Clothing</label>
+            <label><input type="checkbox" value="bottomwear" data-check-filter> Bottomwear</label>
+            <label><input type="checkbox" value="cosmetics" data-check-filter> Cosmetics</label>
+            <label><input type="checkbox" value="shoes" data-check-filter> Shoes</label>
+          </div>
+          <div class="filter-group">
+            <h3>Brand</h3>
+            <label><input type="checkbox"> Nevo Essentials</label>
+            <label><input type="checkbox"> Nevo Studio</label>
+            <label><input type="checkbox"> Nevo Beauty</label>
+          </div>
+          <div class="filter-group">
+            <h3>Color</h3>
+            <div class="color-filter">
+              <span style="--swatch:#111"></span>
+              <span style="--swatch:#fff"></span>
+              <span style="--swatch:#d8b39c"></span>
+              <span style="--swatch:#71815f"></span>
+              <span style="--swatch:#d73846"></span>
+            </div>
+          </div>
+          <div class="filter-group">
+            <h3>Price</h3>
+            <label><input type="checkbox" value="under1500" data-price-filter> Under ₹1,500</label>
+            <label><input type="checkbox" value="under3000" data-price-filter> Under ₹3,000</label>
+          </div>
+          <div class="filter-group">
+            <h3>Discount Range</h3>
+            <label><input type="checkbox"> 30% and above</label>
+            <label><input type="checkbox"> 40% and above</label>
+            <label><input type="checkbox"> 50% and above</label>
+          </div>
+          <button class="clear-btn" type="button" data-clear>Clear all</button>
+        </aside>
+
+        <div class="product-grid" data-product-grid>
+          <article class="product-card" data-category="clothing new" data-price="1559" data-name="Solid Linen Blend Shirt">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=85" alt="White linen blend shirt sample">
+              <span class="badge">Exclusive</span>
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.6</div>
+              <p>Slim fit · Solid</p>
+              <h3>Solid Linen Blend Shirt | White</h3>
+              <div class="price"><strong>₹1,559</strong><s>₹2,599</s><span>40% OFF</span></div>
+              <em>Launch Deal: ₹1,404</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothing new" data-price="719" data-name="Oversized Graphic T-Shirt">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85" alt="Oversized t-shirt sample">
+              <span class="badge">New Drop</span>
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.5</div>
+              <p>Oversized · Printed</p>
+              <h3>Oversized Graphic T-Shirt | Off White</h3>
+              <div class="price"><strong>₹719</strong><s>₹1,199</s><span>40% OFF</span></div>
+              <em>Launch Deal: ₹648</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothing" data-price="1319" data-name="Textured Polo T-Shirt">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?auto=format&fit=crop&w=700&q=85" alt="Polo t-shirt sample">
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.7</div>
+              <p>Olive · Slim fit</p>
+              <h3>Textured Casual Polo T-Shirt | Olive</h3>
+              <div class="price"><strong>₹1,319</strong><s>₹2,199</s><span>40% OFF</span></div>
+              <em>Launch Deal: ₹1,188</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="bottomwear" data-price="1499" data-name="Corduroy Carpenter Trouser">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1548883354-94bcfe321cbb?auto=format&fit=crop&w=700&q=85" alt="Brown trouser sample">
+              <span class="badge">Exclusive</span>
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 5.0</div>
+              <p>Loose fit · Solid</p>
+              <h3>Corduroy Carpenter Trouser | Brown</h3>
+              <div class="price"><strong>₹1,499</strong><s>₹2,999</s><span>50% OFF</span></div>
+              <em>Launch Deal: ₹1,350</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="bottomwear new" data-price="1549" data-name="Straight Fit Joggers">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=700&q=85" alt="Joggers sample">
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.8</div>
+              <p>Straight fit · Cotton</p>
+              <h3>Straight Fit Joggers | Olive</h3>
+              <div class="price"><strong>₹1,549</strong><s>₹2,599</s><span>40% OFF</span></div>
+              <em>Launch Deal: ₹1,395</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="shoes new" data-price="2099" data-name="Avenue Runner Sneakers">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=85" alt="Sneakers sample">
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.5</div>
+              <p>White · Grey</p>
+              <h3>Avenue Runner Sneakers | Lighttag</h3>
+              <div class="price"><strong>₹2,099</strong><s>₹4,199</s><span>50% OFF</span></div>
+              <em>Launch Deal: ₹1,890</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="shoes" data-price="999" data-name="Everyday Sliders">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=700&q=85" alt="Black sliders sample">
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.3</div>
+              <p>Black · Comfort sole</p>
+              <h3>Everyday Sliders | Black</h3>
+              <div class="price"><strong>₹999</strong><s>₹1,699</s><span>41% OFF</span></div>
+              <em>Launch Deal: ₹900</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="shoes" data-price="2990" data-name="Studio Heel">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85" alt="Elegant heels sample">
+              <span class="badge">Bestseller</span>
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.6</div>
+              <p>Nude · Studio finish</p>
+              <h3>Studio Heel | Soft Beige</h3>
+              <div class="price"><strong>₹2,990</strong><s>₹4,999</s><span>40% OFF</span></div>
+              <em>Launch Deal: ₹2,691</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="cosmetics new" data-price="2450" data-name="Glow Base Kit">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=85" alt="Glow base cosmetics kit sample">
+              <span class="badge">Beauty</span>
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.9</div>
+              <p>Primer · Compact · Brush</p>
+              <h3>Glow Base Kit | Medium</h3>
+              <div class="price"><strong>₹2,450</strong><s>₹3,499</s><span>30% OFF</span></div>
+              <em>Launch Deal: ₹2,205</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="cosmetics" data-price="1650" data-name="Velvet Lip Trio">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=85" alt="Lipstick trio sample">
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.4</div>
+              <p>Matte · Long wear</p>
+              <h3>Velvet Lip Trio | Warm Set</h3>
+              <div class="price"><strong>₹1,650</strong><s>₹2,199</s><span>25% OFF</span></div>
+              <em>Launch Deal: ₹1,485</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="cosmetics" data-price="1199" data-name="Soft Glam Palette">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=85" alt="Soft glam makeup sample">
+              <span class="badge">New Drop</span>
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.7</div>
+              <p>12 shades · Soft glam</p>
+              <h3>Soft Glam Palette | Daily Nude</h3>
+              <div class="price"><strong>₹1,199</strong><s>₹1,999</s><span>40% OFF</span></div>
+              <em>Launch Deal: ₹1,080</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="clothing bottomwear" data-price="1679" data-name="Slim Fit Denim">
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=85" alt="Blue denim jeans sample">
+              <button type="button" aria-label="Add to wishlist">♡</button>
+            </div>
+            <div class="product-body">
+              <div class="rating">★ 4.5</div>
+              <p>Slim fit · Heavy fade</p>
+              <h3>Slim Fit Denim | Blue</h3>
+              <div class="price"><strong>₹1,679</strong><s>₹2,799</s><span>40% OFF</span></div>
+              <em>Launch Deal: ₹1,512</em>
+              <button type="button" data-add-bag>Add to Bag</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="search-panel" data-search-panel aria-hidden="true">
+    <div class="search-box">
+      <button type="button" aria-label="Close search" data-search-close>×</button>
+      <h2>Search Nevo Wear</h2>
+      <input type="search" placeholder="Try shirt, sneakers, lipstick..." data-search-input>
+      <div class="search-results" data-search-results></div>
+    </div>
+  </div>
+
+  <div class="signup-popup" data-signup-popup aria-hidden="true">
+    <div class="signup-card" role="dialog" aria-modal="true" aria-labelledby="signup-title">
+      <button class="signup-close" type="button" aria-label="Close signup popup" data-signup-close>×</button>
+      <img src="nevo-wear-logo.png" alt="Nevo Wear logo">
+      <p class="eyebrow">Welcome offer</p>
+      <h2 id="signup-title">Sign up for launch deals</h2>
+      <p>Enter your phone number to unlock demo offers, new drops, and early access updates.</p>
+      <form data-phone-form>
+        <label for="phone">Phone number</label>
+        <input id="phone" type="tel" inputmode="tel" placeholder="+91 98765 43210" required>
+        <button type="submit">Continue</button>
+      </form>
+      <button class="skip-link" type="button" data-signup-skip>Maybe later</button>
+      <span data-signup-note aria-live="polite"></span>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <strong>Nevo Wear</strong>
+    <span>Clothing | Cosmetics | Shoes</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

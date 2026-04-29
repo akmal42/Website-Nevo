@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nevo Wear | Account</title>
+  <meta name="description" content="Demo Nevo Wear profile page with login, account, and favorites sections.">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="offer-strip">Launch Offer: Flat 40% off selected styles + free shipping on demo orders</div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Nevo Wear home">
+      <img src="nevo-wear-logo.png" alt="Nevo Wear logo">
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html#products">All Products</a>
+      <a href="index.html#products">Clothing</a>
+      <a href="index.html#products">Cosmetics</a>
+      <a href="index.html#products">Shoes</a>
+      <a href="index.html#new">Fresh Arrivals</a>
+      <a href="profile.html">Profile</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="profile-btn active" href="profile.html">Login</a>
+      <a class="bag-btn" href="index.html#products" aria-label="Shopping bag">Bag <span>0</span></a>
+      <button class="menu-btn" type="button" aria-label="Open menu" data-profile-menu>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="profile-page">
+    <section class="profile-hero">
+      <div>
+        <p class="eyebrow">Nevo Wear account</p>
+        <h1>Your Nevo account, styled for shopping.</h1>
+        <p>A premium customer portal demo with login, member rewards, orders, saved address, and favorites in one clean account experience.</p>
+      </div>
+      <div class="profile-summary-card">
+        <img src="nevo-wear-logo.png" alt="Nevo Wear logo">
+        <strong data-demo-user>Guest User</strong>
+        <span data-demo-status>Login to unlock account benefits</span>
+      </div>
+    </section>
+
+    <section class="profile-shell">
+      <div class="profile-tabs" role="tablist" aria-label="Profile sections">
+        <button class="active" type="button" data-profile-tab="login"><span>01</span> Login</button>
+        <button type="button" data-profile-tab="account"><span>02</span> Account</button>
+        <button type="button" data-profile-tab="favorites"><span>03</span> Favorites</button>
+      </div>
+
+      <section class="profile-panel active" data-profile-panel="login">
+        <div class="login-card">
+          <div>
+            <p class="eyebrow">Secure demo login</p>
+            <h2>Sign in to Nevo Wear</h2>
+            <p>Use any demo phone number or email. This static page stores the display name only in your browser for preview.</p>
+            <div class="login-benefits">
+              <span>Early access drops</span>
+              <span>Saved wishlist</span>
+              <span>Faster checkout</span>
+            </div>
+          </div>
+          <form data-login-form>
+            <label for="login-name">Name</label>
+            <input id="login-name" type="text" placeholder="Akmal" required>
+            <label for="login-contact">Phone or email</label>
+            <input id="login-contact" type="text" placeholder="+91 98765 43210" required>
+            <button type="submit">Login</button>
+            <span data-login-note aria-live="polite"></span>
+          </form>
+        </div>
+      </section>
+
+      <section class="profile-panel" data-profile-panel="account">
+        <div class="account-grid">
+          <article>
+            <span>Orders</span>
+            <strong>03</strong>
+            <p>Demo orders tracked</p>
+          </article>
+          <article>
+            <span>Rewards</span>
+            <strong>₹450</strong>
+            <p>Nevo credit balance</p>
+          </article>
+          <article>
+            <span>Saved</span>
+            <strong>06</strong>
+            <p>Favorite products</p>
+          </article>
+        </div>
+        <div class="account-dashboard">
+          <article class="account-details">
+            <h2>Account Overview</h2>
+            <div>
+              <p><strong>Name:</strong> <span data-account-name>Guest User</span></p>
+              <p><strong>Status:</strong> Nevo demo member</p>
+              <p><strong>Preferred category:</strong> Clothing, cosmetics, and shoes</p>
+            </div>
+          </article>
+
+          <article class="account-details">
+            <h2>Saved Address</h2>
+            <div>
+              <p><strong>Default:</strong> Mumbai, Maharashtra</p>
+              <p><strong>Phone:</strong> +91 98765 43210</p>
+              <p><strong>Delivery:</strong> Standard demo delivery</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="order-timeline">
+          <div class="order-head">
+            <div>
+              <p class="eyebrow">Recent order</p>
+              <h2>Order #NW1024</h2>
+            </div>
+            <span>In transit</span>
+          </div>
+          <div class="timeline-steps">
+            <span class="done">Placed</span>
+            <span class="done">Packed</span>
+            <span class="done">Shipped</span>
+            <span>Delivered</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="profile-panel" data-profile-panel="favorites">
+        <div class="favorites-head">
+          <div>
+            <p class="eyebrow">Wishlist</p>
+            <h2>Your Favorites</h2>
+          </div>
+          <a class="primary-link" href="index.html#products">Continue Shopping</a>
+        </div>
+        <div class="favorite-grid">
+          <article>
+            <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=85" alt="Favorite shirt sample">
+            <h3>Solid Linen Blend Shirt</h3>
+            <p>₹1,559</p>
+            <button type="button">Move to Bag</button>
+          </article>
+          <article>
+            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=85" alt="Favorite sneaker sample">
+            <h3>Avenue Runner Sneakers</h3>
+            <p>₹2,099</p>
+            <button type="button">Move to Bag</button>
+          </article>
+          <article>
+            <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=85" alt="Favorite lipstick sample">
+            <h3>Velvet Lip Trio</h3>
+            <p>₹1,650</p>
+            <button type="button">Move to Bag</button>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>Nevo Wear</strong>
+    <span>Account | Favorites | Login</span>
+  </footer>
+
+  <script src="profile.js"></script>
+</body>
+</html>

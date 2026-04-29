@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nevo Wear | Checkout</title>
+  <meta name="description" content="Demo checkout page for Nevo Wear.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="offer-strip">Secure demo checkout - no payment is collected</div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Nevo Wear home">
+      <img src="nevo-wear-logo.png" alt="Nevo Wear logo">
+    </a>
+
+    <nav class="main-nav" aria-label="Checkout navigation">
+      <a href="index.html#products">Shop</a>
+      <a href="profile.html">Profile</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="profile-btn" href="profile.html">Login</a>
+      <a class="bag-btn" href="checkout.html" aria-label="Shopping bag">Bag <span data-checkout-count>0</span></a>
+    </div>
+  </header>
+
+  <main class="checkout-page">
+    <section class="checkout-hero">
+      <p class="eyebrow">Nevo Wear checkout</p>
+      <h1>Review your bag and place a demo order.</h1>
+      <p>This checkout is for client preview only. It shows cart items, delivery details, price summary, and confirmation without collecting real payment.</p>
+    </section>
+
+    <section class="checkout-layout">
+      <div class="checkout-left">
+        <div class="checkout-card">
+          <div class="checkout-card-head">
+            <h2>My Bag</h2>
+            <a href="index.html#products">Continue Shopping</a>
+          </div>
+          <div class="cart-items" data-cart-items></div>
+        </div>
+
+        <div class="checkout-card">
+          <h2>Delivery Details</h2>
+          <form class="checkout-form" data-checkout-form>
+            <label for="checkout-name">Full name</label>
+            <input id="checkout-name" type="text" placeholder="Akmal" required>
+            <label for="checkout-phone">Phone number</label>
+            <input id="checkout-phone" type="tel" placeholder="+91 98765 43210" required>
+            <label for="checkout-address">Address</label>
+            <textarea id="checkout-address" placeholder="House number, street, city" required></textarea>
+          </form>
+        </div>
+      </div>
+
+      <aside class="checkout-summary">
+        <h2>Price Details</h2>
+        <div class="summary-row">
+          <span>Bag total</span>
+          <strong data-subtotal>₹0</strong>
+        </div>
+        <div class="summary-row">
+          <span>Discount</span>
+          <strong data-discount>- ₹0</strong>
+        </div>
+        <div class="summary-row">
+          <span>Delivery</span>
+          <strong>Free</strong>
+        </div>
+        <div class="summary-total">
+          <span>Total Amount</span>
+          <strong data-total>₹0</strong>
+        </div>
+        <button type="button" data-place-order>Place Demo Order</button>
+        <p data-order-note aria-live="polite"></p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>Nevo Wear</strong>
+    <span>Checkout | Delivery | Demo Order</span>
+  </footer>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

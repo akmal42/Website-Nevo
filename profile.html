@@ -19,15 +19,16 @@
     <nav class="main-nav" aria-label="Main navigation">
       <a href="index.html#products">All Products</a>
       <a href="index.html#products">Clothing</a>
-      <a href="index.html#products">Cosmetics</a>
-      <a href="index.html#products">Shoes</a>
+      <a href="index.html#products">Jeans</a>
+      <a href="index.html#products">Footwear</a>
       <a href="index.html#new">Fresh Arrivals</a>
       <a href="profile.html">Profile</a>
+      <a href="admin.html">Admin</a>
     </nav>
 
     <div class="header-actions">
       <a class="profile-btn active" href="profile.html">Login</a>
-      <a class="bag-btn" href="index.html#products" aria-label="Shopping bag">Bag <span>0</span></a>
+      <a class="bag-btn" href="checkout.html" aria-label="Shopping bag">Bag <span data-profile-bag-count>0</span></a>
       <button class="menu-btn" type="button" aria-label="Open menu" data-profile-menu>
         <span></span>
         <span></span>
@@ -61,7 +62,7 @@
           <div>
             <p class="eyebrow">Secure demo login</p>
             <h2>Sign in to Nevo Wear</h2>
-            <p>Use any demo phone number or email. This static page stores the display name only in your browser for preview.</p>
+            <p>Use any demo phone number or email. The backend creates a demo account, keeps your cart, and syncs wishlist and order data.</p>
             <div class="login-benefits">
               <span>Early access drops</span>
               <span>Saved wishlist</span>
@@ -83,17 +84,17 @@
         <div class="account-grid">
           <article>
             <span>Orders</span>
-            <strong>03</strong>
+            <strong data-orders-count>00</strong>
             <p>Demo orders tracked</p>
           </article>
           <article>
             <span>Rewards</span>
-            <strong>₹450</strong>
+            <strong data-rewards-amount>Rs. 450</strong>
             <p>Nevo credit balance</p>
           </article>
           <article>
             <span>Saved</span>
-            <strong>06</strong>
+            <strong data-saved-count>00</strong>
             <p>Favorite products</p>
           </article>
         </div>
@@ -103,27 +104,27 @@
             <div>
               <p><strong>Name:</strong> <span data-account-name>Guest User</span></p>
               <p><strong>Status:</strong> Nevo demo member</p>
-              <p><strong>Preferred category:</strong> Clothing, cosmetics, and shoes</p>
+              <p><strong>Preferred category:</strong> Clothing, jeans, trousers, and footwear</p>
             </div>
           </article>
 
           <article class="account-details">
             <h2>Saved Address</h2>
             <div>
-              <p><strong>Default:</strong> Mumbai, Maharashtra</p>
-              <p><strong>Phone:</strong> +91 98765 43210</p>
+              <p><strong>Default:</strong> <span data-saved-address>Mumbai, Maharashtra</span></p>
+              <p><strong>Phone:</strong> <span data-saved-phone>+91 98765 43210</span></p>
               <p><strong>Delivery:</strong> Standard demo delivery</p>
             </div>
           </article>
         </div>
 
-        <div class="order-timeline">
+        <div class="order-timeline" data-order-timeline>
           <div class="order-head">
             <div>
               <p class="eyebrow">Recent order</p>
-              <h2>Order #NW1024</h2>
+              <h2 data-order-id>Order #NW1024</h2>
             </div>
-            <span>In transit</span>
+            <span data-order-status>In transit</span>
           </div>
           <div class="timeline-steps">
             <span class="done">Placed</span>
@@ -142,23 +143,23 @@
           </div>
           <a class="primary-link" href="index.html#products">Continue Shopping</a>
         </div>
-        <div class="favorite-grid">
+        <div class="favorite-grid" data-favorite-grid>
           <article>
             <img src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=85" alt="Favorite shirt sample">
             <h3>Solid Linen Blend Shirt</h3>
-            <p>₹1,559</p>
+            <p>Rs. 1,559</p>
             <button type="button">Move to Bag</button>
           </article>
           <article>
             <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=85" alt="Favorite sneaker sample">
             <h3>Avenue Runner Sneakers</h3>
-            <p>₹2,099</p>
+            <p>Rs. 2,099</p>
             <button type="button">Move to Bag</button>
           </article>
           <article>
             <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=85" alt="Favorite lipstick sample">
             <h3>Velvet Lip Trio</h3>
-            <p>₹1,650</p>
+            <p>Rs. 1,650</p>
             <button type="button">Move to Bag</button>
           </article>
         </div>

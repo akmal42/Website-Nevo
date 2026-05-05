@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nevo Wear | Shop Clothing, Cosmetics & Shoes</title>
-  <meta name="description" content="Nevo Wear demo ecommerce website for clothing, cosmetics, and shoes.">
+  <title>Nevo Wear | Shop Clothing, Jeans, Trousers & Footwear</title>
+  <meta name="description" content="Nevo Wear demo ecommerce website for clothing, T-shirts, shirts, jeans, trousers, and footwear.">
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,29 +18,30 @@
 
     <nav class="main-nav" aria-label="Main navigation">
       <a href="#products" data-filter-jump="all">All Products</a>
-      <a href="#products" data-filter-jump="clothing">Clothing</a>
-      <a href="#products" data-filter-jump="cosmetics">Cosmetics</a>
-      <a href="#products" data-filter-jump="shoes">Shoes</a>
+      <a href="#products" data-filter-jump="clothing">T-Shirts & Shirts</a>
+      <a href="#products" data-filter-jump="bottomwear">Jeans & Trousers</a>
+      <a href="#products" data-filter-jump="footwear">Footwear</a>
       <a href="#new">Fresh Arrivals</a>
       <a href="profile.html">Profile</a>
+      <a href="admin.html">Admin</a>
       <div class="mega-menu" aria-label="Category menu preview">
         <div>
           <h3>Men</h3>
+          <a href="#products" data-filter-jump="clothing">T-Shirts</a>
           <a href="#products" data-filter-jump="clothing">Shirts</a>
-          <a href="#products" data-filter-jump="bottomwear">Jeans</a>
-          <a href="#products" data-filter-jump="shoes">Sneakers</a>
+          <a href="#products" data-filter-jump="footwear">Sneakers</a>
         </div>
         <div>
           <h3>Women</h3>
-          <a href="#products" data-filter-jump="clothing">Topwear</a>
-          <a href="#products" data-filter-jump="cosmetics">Makeup</a>
-          <a href="#products" data-filter-jump="shoes">Heels</a>
+          <a href="#products" data-filter-jump="clothing">Tops & Shirts</a>
+          <a href="#products" data-filter-jump="bottomwear">Jeans</a>
+          <a href="#products" data-filter-jump="footwear">Heels</a>
         </div>
         <div>
-          <h3>Beauty</h3>
-          <a href="#products" data-filter-jump="cosmetics">Lipstick</a>
-          <a href="#products" data-filter-jump="cosmetics">Palettes</a>
-          <a href="#products" data-filter-jump="cosmetics">Glow Kits</a>
+          <h3>Essentials</h3>
+          <a href="#products" data-filter-jump="bottomwear">Trousers</a>
+          <a href="#products" data-filter-jump="footwear">Sliders</a>
+          <a href="#products" data-filter-jump="new">Fresh Arrivals</a>
         </div>
       </div>
     </nav>
@@ -105,23 +106,22 @@
     <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">Nevo Wear demo store</p>
-        <h1>Style, beauty, and shoes in one storefront.</h1>
+        <h1>Clothing, jeans, trousers, and footwear in one storefront.</h1>
         <p>A client-ready ecommerce sample inspired by modern fashion catalog pages, built with real product sections and working demo interactions.</p>
         <a class="primary-link" href="#products">Shop Collection</a>
       </div>
       <div class="hero-grid" aria-label="Featured sample photos">
         <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=800&q=85" alt="Sample clothing fashion look">
-        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=85" alt="Sample cosmetics products">
+        <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=800&q=85" alt="Sample jeans and trouser products">
         <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=800&q=85" alt="Sample sneakers product">
       </div>
     </section>
 
     <section class="quick-categories" aria-label="Shop by category">
       <button type="button" data-filter="all" class="category-pill active">View All</button>
-      <button type="button" data-filter="clothing" class="category-pill">Topwear</button>
-      <button type="button" data-filter="bottomwear" class="category-pill">Bottomwear</button>
-      <button type="button" data-filter="cosmetics" class="category-pill">Cosmetics</button>
-      <button type="button" data-filter="shoes" class="category-pill">Footwear</button>
+      <button type="button" data-filter="clothing" class="category-pill">T-Shirts & Shirts</button>
+      <button type="button" data-filter="bottomwear" class="category-pill">Jeans & Trousers</button>
+      <button type="button" data-filter="footwear" class="category-pill">Footwear</button>
       <button type="button" data-filter="new" class="category-pill">Fresh Arrivals</button>
     </section>
 
@@ -137,15 +137,11 @@
         </a>
         <a href="#products" data-filter-jump="bottomwear">
           <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=85" alt="Bottomwear category">
-          <span>Bottomwear</span>
+          <span>Jeans</span>
         </a>
-        <a href="#products" data-filter-jump="shoes">
+        <a href="#products" data-filter-jump="footwear">
           <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=85" alt="Footwear category">
           <span>Footwear</span>
-        </a>
-        <a href="#products" data-filter-jump="cosmetics">
-          <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85" alt="Beauty and cosmetics category">
-          <span>Beauty</span>
         </a>
       </div>
     </section>
@@ -156,8 +152,8 @@
         <span>Fresh Arrivals</span>
       </article>
       <article>
-        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=900&q=85" alt="Beauty kit sample">
-        <span>Beauty Kits</span>
+        <img src="https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?auto=format&fit=crop&w=900&q=85" alt="Jeans and trousers sample">
+        <span>Jeans & Trousers</span>
       </article>
       <article>
         <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=900&q=85" alt="Footwear sample">
@@ -171,26 +167,19 @@
         <h2>Motion previews for key categories.</h2>
         <p>Short animated clips help the storefront feel more active for a client presentation.</p>
       </div>
-      <div class="video-grid">
+      <div class="video-grid video-grid-samples">
         <article class="video-card">
-          <img src="demo-shirts.gif" alt="Animated demo video for Nevo Wear shirts">
+          <video src="sample-topwear.mp4" muted loop playsinline autoplay preload="metadata"></video>
           <div>
             <span>01</span>
-            <h3>Shirts & Topwear</h3>
+            <h3>T-Shirts & Shirts</h3>
           </div>
         </article>
         <article class="video-card">
-          <img src="demo-shoes.gif" alt="Animated demo video for Nevo Wear shoes">
+          <video src="sample-footwear.mp4" muted loop playsinline autoplay preload="metadata"></video>
           <div>
             <span>02</span>
-            <h3>Shoes & Footwear</h3>
-          </div>
-        </article>
-        <article class="video-card">
-          <img src="demo-cosmetics.gif" alt="Animated demo video for Nevo Wear cosmetics">
-          <div>
-            <span>03</span>
-            <h3>Cosmetic Items</h3>
+            <h3>Footwear</h3>
           </div>
         </article>
       </div>
@@ -202,7 +191,7 @@
         <div>
           <p class="eyebrow">Collection</p>
           <h2>View All</h2>
-          <p><strong data-product-count>12</strong> Products</p>
+          <p><strong data-product-count>36</strong> Products</p>
         </div>
         <div class="collection-tools">
           <button type="button" data-filter-toggle>Filter</button>
@@ -222,16 +211,15 @@
         <aside class="filters" data-filters>
           <div class="filter-group">
             <h3>Category</h3>
-            <label><input type="checkbox" value="clothing" data-check-filter> Clothing</label>
-            <label><input type="checkbox" value="bottomwear" data-check-filter> Bottomwear</label>
-            <label><input type="checkbox" value="cosmetics" data-check-filter> Cosmetics</label>
-            <label><input type="checkbox" value="shoes" data-check-filter> Shoes</label>
+            <label><input type="checkbox" value="clothing" data-check-filter> T-Shirts & Shirts</label>
+            <label><input type="checkbox" value="bottomwear" data-check-filter> Jeans & Trousers</label>
+            <label><input type="checkbox" value="footwear" data-check-filter> Footwear</label>
           </div>
           <div class="filter-group">
             <h3>Brand</h3>
             <label><input type="checkbox"> Nevo Essentials</label>
             <label><input type="checkbox"> Nevo Studio</label>
-            <label><input type="checkbox"> Nevo Beauty</label>
+            <label><input type="checkbox"> Nevo Kicks</label>
           </div>
           <div class="filter-group">
             <h3>Color</h3>
@@ -336,7 +324,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="shoes new" data-price="2099" data-name="Avenue Runner Sneakers">
+          <article class="product-card" data-category="footwear new" data-price="2099" data-name="Avenue Runner Sneakers">
             <div class="product-media">
               <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=85" alt="Sneakers sample">
               <button type="button" aria-label="Add to wishlist">♡</button>
@@ -351,7 +339,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="shoes" data-price="999" data-name="Everyday Sliders">
+          <article class="product-card" data-category="footwear" data-price="999" data-name="Everyday Sliders">
             <div class="product-media">
               <img src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?auto=format&fit=crop&w=700&q=85" alt="Black sliders sample">
               <button type="button" aria-label="Add to wishlist">♡</button>
@@ -366,7 +354,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="shoes" data-price="2990" data-name="Studio Heel">
+          <article class="product-card" data-category="footwear" data-price="2990" data-name="Studio Heel">
             <div class="product-media">
               <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=85" alt="Elegant heels sample">
               <span class="badge">Bestseller</span>
@@ -382,54 +370,7 @@
             </div>
           </article>
 
-          <article class="product-card" data-category="cosmetics new" data-price="2450" data-name="Glow Base Kit">
-            <div class="product-media">
-              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=85" alt="Glow base cosmetics kit sample">
-              <span class="badge">Beauty</span>
-              <button type="button" aria-label="Add to wishlist">♡</button>
-            </div>
-            <div class="product-body">
-              <div class="rating">★ 4.9</div>
-              <p>Primer · Compact · Brush</p>
-              <h3>Glow Base Kit | Medium</h3>
-              <div class="price"><strong>₹2,450</strong><s>₹3,499</s><span>30% OFF</span></div>
-              <em>Launch Deal: ₹2,205</em>
-              <button type="button" data-add-bag>Add to Bag</button>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="cosmetics" data-price="1650" data-name="Velvet Lip Trio">
-            <div class="product-media">
-              <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=85" alt="Lipstick trio sample">
-              <button type="button" aria-label="Add to wishlist">♡</button>
-            </div>
-            <div class="product-body">
-              <div class="rating">★ 4.4</div>
-              <p>Matte · Long wear</p>
-              <h3>Velvet Lip Trio | Warm Set</h3>
-              <div class="price"><strong>₹1,650</strong><s>₹2,199</s><span>25% OFF</span></div>
-              <em>Launch Deal: ₹1,485</em>
-              <button type="button" data-add-bag>Add to Bag</button>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="cosmetics" data-price="1199" data-name="Soft Glam Palette">
-            <div class="product-media">
-              <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=85" alt="Soft glam makeup sample">
-              <span class="badge">New Drop</span>
-              <button type="button" aria-label="Add to wishlist">♡</button>
-            </div>
-            <div class="product-body">
-              <div class="rating">★ 4.7</div>
-              <p>12 shades · Soft glam</p>
-              <h3>Soft Glam Palette | Daily Nude</h3>
-              <div class="price"><strong>₹1,199</strong><s>₹1,999</s><span>40% OFF</span></div>
-              <em>Launch Deal: ₹1,080</em>
-              <button type="button" data-add-bag>Add to Bag</button>
-            </div>
-          </article>
-
-          <article class="product-card" data-category="clothing bottomwear" data-price="1679" data-name="Slim Fit Denim">
+          <article class="product-card" data-category="bottomwear new" data-price="1679" data-name="Slim Fit Denim Jeans">
             <div class="product-media">
               <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=85" alt="Blue denim jeans sample">
               <button type="button" aria-label="Add to wishlist">♡</button>
@@ -437,7 +378,7 @@
             <div class="product-body">
               <div class="rating">★ 4.5</div>
               <p>Slim fit · Heavy fade</p>
-              <h3>Slim Fit Denim | Blue</h3>
+              <h3>Slim Fit Denim Jeans | Blue</h3>
               <div class="price"><strong>₹1,679</strong><s>₹2,799</s><span>40% OFF</span></div>
               <em>Launch Deal: ₹1,512</em>
               <button type="button" data-add-bag>Add to Bag</button>
@@ -452,7 +393,7 @@
     <div class="search-box">
       <button type="button" aria-label="Close search" data-search-close>×</button>
       <h2>Search Nevo Wear</h2>
-      <input type="search" placeholder="Try shirt, sneakers, lipstick..." data-search-input>
+      <input type="search" placeholder="Try shirt, jeans, sneakers..." data-search-input>
       <div class="search-results" data-search-results></div>
     </div>
   </div>
@@ -476,7 +417,7 @@
 
   <footer class="site-footer">
     <strong>Nevo Wear</strong>
-    <span>Clothing | Cosmetics | Shoes</span>
+    <span>Clothing | Jeans | Trousers | Footwear</span>
   </footer>
 
   <script src="script.js"></script>

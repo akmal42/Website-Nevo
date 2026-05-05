@@ -19,6 +19,7 @@
       <a href="index.html#products">Shop</a>
       <a href="profile.html">Profile</a>
       <a href="checkout.html">Checkout</a>
+      <a href="admin.html">Admin</a>
     </nav>
 
     <div class="header-actions">
@@ -31,7 +32,7 @@
     <section class="checkout-hero">
       <p class="eyebrow">Nevo Wear checkout</p>
       <h1>Review your bag and place a demo order.</h1>
-      <p>This checkout is for client preview only. It shows cart items, delivery details, price summary, and confirmation without collecting real payment.</p>
+      <p>This checkout syncs cart items with the backend, saves delivery details, creates an order, and opens Razorpay when live keys are configured.</p>
     </section>
 
     <section class="checkout-layout">
@@ -61,11 +62,11 @@
         <h2>Price Details</h2>
         <div class="summary-row">
           <span>Bag total</span>
-          <strong data-subtotal>₹0</strong>
+          <strong data-subtotal>Rs. 0</strong>
         </div>
         <div class="summary-row">
           <span>Discount</span>
-          <strong data-discount>- ₹0</strong>
+          <strong data-discount>- Rs. 0</strong>
         </div>
         <div class="summary-row">
           <span>Delivery</span>
@@ -73,9 +74,9 @@
         </div>
         <div class="summary-total">
           <span>Total Amount</span>
-          <strong data-total>₹0</strong>
+          <strong data-total>Rs. 0</strong>
         </div>
-        <button type="button" data-place-order>Place Demo Order</button>
+        <button type="button" data-place-order>Pay Securely</button>
         <p data-order-note aria-live="polite"></p>
       </aside>
     </section>
@@ -86,6 +87,7 @@
     <span>Checkout | Delivery | Demo Order</span>
   </footer>
 
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script src="checkout.js"></script>
 </body>
 </html>

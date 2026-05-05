@@ -1,0 +1,23 @@
+{
+  "name": "nevo-wear-ecommerce",
+  "version": "1.0.0",
+  "description": "Nevo Wear ecommerce MVP with storefront, admin dashboard, cart, orders, MongoDB storage, and Razorpay-ready checkout.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "check": "node --check server.js && node --check script.js && node --check checkout.js && node --check profile.js && node --check admin.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "fashion",
+    "node",
+    "demo"
+  ],
+  "author": "Nevo Wear",
+  "license": "MIT",
+  "dependencies": {
+    "mongodb": "^6.12.0",
+    "nodemailer": "^6.9.16"
+  }
+}

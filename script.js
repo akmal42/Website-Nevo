@@ -1,5 +1,4 @@
 const productGrid = document.querySelector("[data-product-grid]");
-const products = Array.from(document.querySelectorAll(".product-card"));
 const categoryButtons = document.querySelectorAll("[data-filter]");
 const jumpLinks = document.querySelectorAll("[data-filter-jump]");
 const checkFilters = document.querySelectorAll("[data-check-filter]");
@@ -19,20 +18,194 @@ const mainSearch = document.querySelector("[data-main-search]");
 const wishlistCount = document.querySelector("[data-wishlist-count]");
 
 let activeCategory = "all";
+let productData = [];
+let wishlistItems = [];
 let cartItems = JSON.parse(localStorage.getItem("nevoCart") || "[]");
-let wishlistItems = 0;
 
-const productData = products.map((product) => ({
-  element: product,
-  name: product.dataset.name,
-  categories: product.dataset.category.split(" "),
-  price: Number(product.dataset.price),
-  priceText: product.querySelector(".price strong").textContent,
-  image: product.querySelector(".product-media img").src,
-}));
+function getVisitorId() {
+  let visitorId = localStorage.getItem("nevoVisitorId");
+  if (!visitorId) {
+    visitorId = `visitor-${Math.random().toString(16).slice(2)}-${Date.now()}`;
+    localStorage.setItem("nevoVisitorId", visitorId);
+  }
+  return visitorId;
+}
 
-function updateBagCount() {
-  bagCount.textContent = cartItems.reduce((total, item) => total + item.quantity, 0);
+function getAuthToken() {
+  return localStorage.getItem("nevoAuthToken") || "";
+}
+
+async function apiFetch(path, options = {}) {
+  const response = await fetch(path, {
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      "X-Nevo-Session": getVisitorId(),
+      ...(getAuthToken() ? { Authorization: `Bearer ${getAuthToken()}` } : {}),
+      ...(options.headers || {})
+    }
+  });
+
+  if (!response.ok) {
+    const payload = await response.json().catch(() => ({}));
+    throw new Error(payload.error || "Request failed");
+  }
+
+  return response.json();
+}
+
+function formatPrice(value) {
+  return `Rs. ${Number(value || 0).toLocaleString("en-IN")}`;
+}
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function getFallbackProducts() {
+  return [
+    {
+      id: "fallback-graphic-tee",
+      name: "Oversized Graphic T-Shirt",
+      subtitle: "Oversized | Printed",
+      detail: "Off White",
+      category: ["clothing", "new"],
+      brand: "Nevo Studio",
+      price: 719,
+      mrp: 1199,
+      discount: "40% OFF",
+      deal: "Launch Deal: Rs. 647",
+      rating: 4.5,
+      badge: "New Drop",
+      sizes: ["S", "M", "L", "XL"],
+      image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85"
+    },
+    {
+      id: "fallback-oxford-shirt",
+      name: "Oxford Button Down Shirt",
+      subtitle: "Regular fit | Cotton",
+      detail: "Sky Blue",
+      category: ["clothing"],
+      brand: "Nevo Essentials",
+      price: 1299,
+      mrp: 2199,
+      discount: "41% OFF",
+      deal: "Launch Deal: Rs. 1,169",
+      rating: 4.6,
+      badge: "",
+      sizes: ["S", "M", "L", "XL"],
+      image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=700&q=85"
+    },
+    {
+      id: "fallback-slim-denim",
+      name: "Slim Fit Denim Jeans",
+      subtitle: "Slim fit | Heavy fade",
+      detail: "Blue",
+      category: ["bottomwear", "new"],
+      brand: "Nevo Essentials",
+      price: 1679,
+      mrp: 2799,
+      discount: "40% OFF",
+      deal: "Launch Deal: Rs. 1,511",
+      rating: 4.5,
+      badge: "",
+      sizes: ["30", "32", "34", "36"],
+      image: "https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=700&q=85"
+    },
+    {
+      id: "fallback-cargo-trouser",
+      name: "Relaxed Cargo Trouser",
+      subtitle: "Utility pockets | Cotton",
+      detail: "Stone",
+      category: ["bottomwear"],
+      brand: "Nevo Studio",
+      price: 1599,
+      mrp: 2699,
+      discount: "41% OFF",
+      deal: "Launch Deal: Rs. 1,439",
+      rating: 4.4,
+      badge: "",
+      sizes: ["30", "32", "34", "36"],
+      image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=85"
+    },
+    {
+      id: "fallback-avenue-runner",
+      name: "Avenue Runner Sneakers",
+      subtitle: "White | Grey",
+      detail: "Lighttag",
+      category: ["footwear", "new"],
+      brand: "Nevo Kicks",
+      price: 2099,
+      mrp: 4199,
+      discount: "50% OFF",
+      deal: "Launch Deal: Rs. 1,889",
+      rating: 4.5,
+      badge: "",
+      sizes: ["7", "8", "9", "10"],
+      image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=700&q=85"
+    },
+    {
+      id: "fallback-trail-knit",
+      name: "Trail Knit Sneakers",
+      subtitle: "Cushion sole | Sport",
+      detail: "Charcoal",
+      category: ["footwear", "new"],
+      brand: "Nevo Kicks",
+      price: 2399,
+      mrp: 3999,
+      discount: "40% OFF",
+      deal: "Launch Deal: Rs. 2,159",
+      rating: 4.7,
+      badge: "New Drop",
+      sizes: ["7", "8", "9", "10"],
+      image: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=85"
+    }
+  ];
+}
+
+function renderProductCard(product) {
+  const categories = product.category.join(" ");
+  const isWishlisted = wishlistItems.some((item) => item.productId === product.id);
+  const badge = product.badge ? `<span class="badge">${escapeHtml(product.badge)}</span>` : "";
+  const sizes = product.sizes?.length ? product.sizes.join("  ") : "S  M  L  XL";
+
+  return `
+    <article class="product-card" data-id="${escapeHtml(product.id)}" data-category="${escapeHtml(categories)}" data-price="${product.price}" data-name="${escapeHtml(product.name)}">
+      <div class="product-media">
+        <img src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name)}">
+        ${badge}
+        <button class="${isWishlisted ? "wishlisted" : ""}" type="button" aria-label="Add to wishlist" data-wishlist="${escapeHtml(product.id)}">${isWishlisted ? "&#9829;" : "&#9825;"}</button>
+      </div>
+      <div class="product-body">
+        <div class="rating">&#9733; ${Number(product.rating || 4.5).toFixed(1)}</div>
+        <p>${escapeHtml(product.subtitle)}</p>
+        <h3 data-sizes="Sizes: ${escapeHtml(sizes)}">${escapeHtml(product.name)}${product.detail ? ` | ${escapeHtml(product.detail)}` : ""}</h3>
+        <div class="price"><strong>${formatPrice(product.price)}</strong><s>${formatPrice(product.mrp)}</s><span>${escapeHtml(product.discount)}</span></div>
+        <em>${escapeHtml(product.deal)}</em>
+        <button type="button" data-add-bag="${escapeHtml(product.id)}">Add to Bag</button>
+      </div>
+    </article>
+  `;
+}
+
+function renderProducts() {
+  productGrid.innerHTML = productData.map(renderProductCard).join("");
+  bindProductActions();
+  applyFilters();
+}
+
+function updateBagCount(summary) {
+  const total = summary?.itemCount ?? cartItems.reduce((sum, item) => sum + Number(item.quantity || 1), 0);
+  bagCount.textContent = total;
+}
+
+function updateWishlistCount() {
+  wishlistCount.textContent = wishlistItems.length;
 }
 
 function selectedValues(nodes) {
@@ -51,17 +224,20 @@ function matchesPrice(product, selectedPrices) {
 }
 
 function applyFilters() {
+  const cards = Array.from(document.querySelectorAll(".product-card"));
   const selectedCategories = selectedValues(checkFilters);
   const selectedPrices = selectedValues(priceFilters);
   let visibleCount = 0;
 
-  productData.forEach((product) => {
-    const quickCategoryMatch = activeCategory === "all" || product.categories.includes(activeCategory);
-    const checkboxMatch = !selectedCategories.length || selectedCategories.some((category) => product.categories.includes(category));
+  cards.forEach((card) => {
+    const categories = card.dataset.category.split(" ");
+    const product = productData.find((item) => item.id === card.dataset.id) || { price: Number(card.dataset.price) };
+    const quickCategoryMatch = activeCategory === "all" || categories.includes(activeCategory);
+    const checkboxMatch = !selectedCategories.length || selectedCategories.some((category) => categories.includes(category));
     const priceMatch = matchesPrice(product, selectedPrices);
     const visible = quickCategoryMatch && checkboxMatch && priceMatch;
 
-    product.element.classList.toggle("is-hidden", !visible);
+    card.classList.toggle("is-hidden", !visible);
     if (visible) visibleCount += 1;
   });
 
@@ -72,30 +248,125 @@ function applyFilters() {
 }
 
 function sortProducts(mode) {
-  const sorted = [...productData].sort((a, b) => {
+  productData.sort((a, b) => {
     if (mode === "low") return a.price - b.price;
     if (mode === "high") return b.price - a.price;
-    if (mode === "new") return b.categories.includes("new") - a.categories.includes("new");
-    return products.indexOf(a.element) - products.indexOf(b.element);
+    if (mode === "new") return Number(b.category.includes("new")) - Number(a.category.includes("new"));
+    return 0;
   });
-
-  sorted.forEach((product) => productGrid.appendChild(product.element));
+  renderProducts();
 }
 
 function renderSearch(query = "") {
   const value = query.trim().toLowerCase();
   const matches = productData.filter((product) => {
-    return !value || `${product.name} ${product.categories.join(" ")}`.toLowerCase().includes(value);
+    return !value || `${product.name} ${product.category.join(" ")} ${product.brand}`.toLowerCase().includes(value);
   });
 
   searchResults.innerHTML = matches.length
     ? matches.map((product) => `
-      <div class="search-result">
-        <strong>${product.name}</strong>
-        <span>${product.priceText}</span>
-      </div>
+      <button class="search-result" type="button" data-search-product="${escapeHtml(product.id)}">
+        <strong>${escapeHtml(product.name)}</strong>
+        <span>${formatPrice(product.price)}</span>
+      </button>
     `).join("")
     : "<div class=\"search-result\"><strong>No product found</strong><span>Try another search</span></div>";
+
+  document.querySelectorAll("[data-search-product]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const card = document.querySelector(`[data-id="${button.dataset.searchProduct}"]`);
+      searchPanel.classList.remove("open");
+      searchPanel.setAttribute("aria-hidden", "true");
+      card?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+  });
+}
+
+async function syncCartFromApi() {
+  try {
+    const payload = await apiFetch("/api/cart");
+    if (!payload.cart.length && cartItems.length) {
+      const synced = await apiFetch("/api/cart", {
+        method: "PUT",
+        body: JSON.stringify({ cart: cartItems })
+      });
+      cartItems = synced.cart;
+      localStorage.setItem("nevoCart", JSON.stringify(cartItems));
+      updateBagCount(synced.summary);
+      return;
+    }
+    cartItems = payload.cart;
+    localStorage.setItem("nevoCart", JSON.stringify(cartItems));
+    updateBagCount(payload.summary);
+  } catch {
+    updateBagCount();
+  }
+}
+
+async function syncWishlistFromApi() {
+  try {
+    const payload = await apiFetch("/api/wishlist");
+    wishlistItems = payload.wishlist;
+    updateWishlistCount();
+  } catch {
+    wishlistItems = JSON.parse(localStorage.getItem("nevoWishlist") || "[]");
+    updateWishlistCount();
+  }
+}
+
+function bindProductActions() {
+  document.querySelectorAll("[data-add-bag]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const product = productData.find((item) => item.id === button.dataset.addBag);
+      if (!product) return;
+
+      try {
+        const payload = await apiFetch("/api/cart/items", {
+          method: "POST",
+          body: JSON.stringify({ productId: product.id, quantity: 1, size: product.sizes?.[1] || "M" })
+        });
+        cartItems = payload.cart;
+        updateBagCount(payload.summary);
+      } catch {
+        const existing = cartItems.find((item) => item.productId === product.id);
+        if (existing) existing.quantity += 1;
+        else cartItems.push({ productId: product.id, name: product.name, price: product.price, image: product.image, quantity: 1, size: "M" });
+        updateBagCount();
+      }
+
+      localStorage.setItem("nevoCart", JSON.stringify(cartItems));
+      button.classList.add("added");
+      button.textContent = "Added";
+      window.setTimeout(() => {
+        button.classList.remove("added");
+        button.textContent = "Add to Bag";
+      }, 1000);
+    });
+  });
+
+  document.querySelectorAll("[data-wishlist]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const productId = button.dataset.wishlist;
+      const alreadyWishlisted = wishlistItems.some((item) => item.productId === productId);
+      try {
+        const payload = await apiFetch(alreadyWishlisted ? `/api/wishlist/${productId}` : "/api/wishlist", {
+          method: alreadyWishlisted ? "DELETE" : "POST",
+          body: alreadyWishlisted ? undefined : JSON.stringify({ productId })
+        });
+        wishlistItems = payload.wishlist;
+      } catch {
+        if (alreadyWishlisted) wishlistItems = wishlistItems.filter((item) => item.productId !== productId);
+        else {
+          const product = productData.find((item) => item.id === productId);
+          wishlistItems.push({ productId, name: product.name, price: product.price, image: product.image });
+        }
+      }
+
+      localStorage.setItem("nevoWishlist", JSON.stringify(wishlistItems));
+      updateWishlistCount();
+      renderProducts();
+    });
+  });
 }
 
 categoryButtons.forEach((button) => {
@@ -126,48 +397,7 @@ document.querySelector("[data-clear]").addEventListener("click", () => {
   applyFilters();
 });
 
-sortSelect.addEventListener("change", () => {
-  sortProducts(sortSelect.value);
-});
-
-document.querySelectorAll("[data-add-bag]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const card = button.closest(".product-card");
-    const product = productData.find((item) => item.element === card);
-    const existing = cartItems.find((item) => item.name === product.name);
-
-    if (existing) {
-      existing.quantity += 1;
-    } else {
-      cartItems.push({
-        name: product.name,
-        price: product.price,
-        priceText: product.priceText,
-        image: product.image,
-        quantity: 1,
-      });
-    }
-
-    localStorage.setItem("nevoCart", JSON.stringify(cartItems));
-    updateBagCount();
-    button.classList.add("added");
-    button.textContent = "Added";
-    window.setTimeout(() => {
-      button.classList.remove("added");
-      button.textContent = "Add to Bag";
-    }, 1000);
-  });
-});
-
-document.querySelectorAll('[aria-label="Add to wishlist"]').forEach((button) => {
-  button.addEventListener("click", () => {
-    if (button.classList.contains("wishlisted")) return;
-    wishlistItems += 1;
-    wishlistCount.textContent = wishlistItems;
-    button.classList.add("wishlisted");
-    button.textContent = "♥";
-  });
-});
+sortSelect.addEventListener("change", () => sortProducts(sortSelect.value));
 
 document.querySelector("[data-filter-toggle]").addEventListener("click", () => {
   filters.classList.toggle("open");
@@ -234,12 +464,34 @@ signupPopup.addEventListener("click", (event) => {
   if (event.target === signupPopup) closeSignupPopup();
 });
 
-phoneForm.addEventListener("submit", (event) => {
+phoneForm.addEventListener("submit", async (event) => {
   event.preventDefault();
+  const phone = document.querySelector("#phone").value.trim();
+  try {
+    await apiFetch("/api/newsletter", {
+      method: "POST",
+      body: JSON.stringify({ phone })
+    });
+  } catch {
+    localStorage.setItem("nevoSignupPhone", phone);
+  }
   signupNote.textContent = "Thanks. Your demo signup is confirmed.";
   window.setTimeout(closeSignupPopup, 900);
 });
 
-applyFilters();
-updateBagCount();
-openSignupPopup();
+async function initStorefront() {
+  productData = getFallbackProducts();
+  try {
+    const payload = await apiFetch("/api/products");
+    if (payload.products?.length) productData = payload.products;
+  } catch {
+    productData = getFallbackProducts();
+  }
+
+  await syncWishlistFromApi();
+  renderProducts();
+  await syncCartFromApi();
+  openSignupPopup();
+}
+
+initStorefront();

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nevo Wear | Admin</title>
+  <meta name="description" content="Nevo Wear admin dashboard for products, orders, and customers.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+  <div class="offer-strip">Admin Dashboard | Products | Orders | Customers</div>
+
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Nevo Wear home">
+      <img src="nevo-wear-logo.png" alt="Nevo Wear logo">
+    </a>
+    <nav class="main-nav" aria-label="Admin navigation">
+      <a href="index.html">Storefront</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="profile.html">Profile</a>
+      <a href="admin.html">Admin</a>
+    </nav>
+    <div class="header-actions">
+      <button class="profile-btn" type="button" data-admin-logout>Logout</button>
+    </div>
+  </header>
+
+  <main class="admin-shell">
+    <section class="admin-hero">
+      <p class="eyebrow">Go-live control room</p>
+      <h1>Manage Nevo Wear from one dashboard.</h1>
+      <p>Products, customer data, orders, payment states, and order fulfilment are connected to the backend.</p>
+    </section>
+
+    <section class="admin-login" data-admin-login>
+      <form data-admin-login-form>
+        <h2>Admin Login</h2>
+        <label for="admin-email">Email</label>
+        <input id="admin-email" type="email" value="admin@nevowear.test" required>
+        <label for="admin-password">Password</label>
+        <input id="admin-password" type="password" value="admin12345" required>
+        <button type="submit">Login</button>
+        <span data-admin-login-note></span>
+      </form>
+    </section>
+
+    <section class="admin-app" data-admin-app hidden>
+      <div class="admin-stats">
+        <article><span>Products</span><strong data-stat-products>0</strong></article>
+        <article><span>Orders</span><strong data-stat-orders>0</strong></article>
+        <article><span>Customers</span><strong data-stat-customers>0</strong></article>
+        <article><span>Revenue</span><strong data-stat-revenue>Rs. 0</strong></article>
+      </div>
+
+      <div class="admin-grid">
+        <section class="admin-card">
+          <div class="admin-card-head">
+            <div>
+              <p class="eyebrow">Catalog</p>
+              <h2>Add Product</h2>
+            </div>
+          </div>
+          <form class="admin-form" data-product-form>
+            <label>Name<input name="name" required placeholder="Premium Shirt"></label>
+            <label>Subtitle<input name="subtitle" placeholder="Slim fit | Cotton"></label>
+            <label>Category<input name="category" required placeholder="clothing,new or footwear,new"></label>
+            <label>Brand<input name="brand" placeholder="Nevo Essentials"></label>
+            <label>Price<input name="price" type="number" min="1" required placeholder="1599"></label>
+            <label>MRP<input name="mrp" type="number" min="1" placeholder="2599"></label>
+            <label>Discount<input name="discount" placeholder="40% OFF"></label>
+            <label>Sizes<input name="sizes" placeholder="S,M,L,XL"></label>
+            <label>Stock<input name="stock" type="number" min="0" value="10"></label>
+            <label>Image URL<input name="image" required placeholder="https://..."></label>
+            <button type="submit">Add Product</button>
+            <span data-product-note></span>
+          </form>
+        </section>
+
+        <section class="admin-card">
+          <div class="admin-card-head">
+            <div>
+              <p class="eyebrow">Live products</p>
+              <h2>Product List</h2>
+            </div>
+          </div>
+          <div class="admin-list" data-admin-products></div>
+        </section>
+      </div>
+
+      <section class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="eyebrow">Fulfilment</p>
+            <h2>Orders</h2>
+          </div>
+        </div>
+        <div class="admin-list" data-admin-orders></div>
+      </section>
+
+      <section class="admin-card">
+        <div class="admin-card-head">
+          <div>
+            <p class="eyebrow">Customers</p>
+            <h2>User Data</h2>
+          </div>
+        </div>
+        <div class="admin-list" data-admin-customers></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <strong>Nevo Wear Admin</strong>
+    <span>Use .env credentials before going live</span>
+  </footer>
+
+  <script src="admin.js"></script>
+</body>
+</html>

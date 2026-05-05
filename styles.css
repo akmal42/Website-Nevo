@@ -1,12 +1,15 @@
 :root {
-  --ink: #111;
-  --muted: #6d6d6d;
-  --paper: #fff;
-  --soft: #f5f5f5;
-  --line: #e2e2e2;
-  --accent: #e2382f;
-  --deal: #0f8c4d;
-  --shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+  --ink: #241c1f;
+  --muted: #756b68;
+  --paper: #fffaf7;
+  --soft: #f5eee8;
+  --line: #e8d8d1;
+  --accent: #b76e79;
+  --deal: #4f7d63;
+  --blush: #f8e7e0;
+  --sage: #edf2e6;
+  --lavender: #eeebf5;
+  --shadow: 0 18px 45px rgba(79, 55, 48, 0.14);
 }
 
 * {
@@ -46,7 +49,7 @@ a {
 
 .offer-strip {
   padding: 10px 14px;
-  color: white;
+  color: #fff8f1;
   background: var(--ink);
   font-size: 13px;
   font-weight: 800;
@@ -64,7 +67,7 @@ a {
   min-height: 86px;
   padding: 10px clamp(14px, 4vw, 52px);
   border-bottom: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 250, 247, 0.94);
   backdrop-filter: blur(14px);
 }
 
@@ -103,7 +106,7 @@ a {
   gap: 22px;
   padding: 24px;
   border: 1px solid var(--line);
-  background: white;
+  background: var(--paper);
   box-shadow: var(--shadow);
   opacity: 0;
   pointer-events: none;
@@ -297,14 +300,14 @@ a {
   gap: clamp(22px, 5vw, 70px);
   align-items: center;
   padding: clamp(30px, 6vw, 76px) clamp(14px, 4vw, 52px);
-  background: linear-gradient(90deg, #f2f2f2, #ffffff);
+  background: linear-gradient(135deg, #fff7f1 0%, #f3efe7 52%, #eef3ed 100%);
 }
 
 .brand-ticker {
   overflow: hidden;
-  border-bottom: 1px solid #2a2a2a;
-  background: #111;
-  color: white;
+  border-bottom: 1px solid #443137;
+  background: var(--ink);
+  color: #fff8f1;
 }
 
 .ticker-track {
@@ -345,12 +348,12 @@ a {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   border-bottom: 1px solid var(--line);
-  background: #fff4f3;
+  background: var(--blush);
 }
 
 .myntra-strip article {
   min-height: 78px;
-  border-right: 1px solid rgba(226, 56, 47, 0.18);
+  border-right: 1px solid rgba(183, 110, 121, 0.22);
   padding: 16px clamp(12px, 2vw, 24px);
 }
 
@@ -405,7 +408,7 @@ a {
   margin-top: 10px;
   padding: 0 22px;
   color: white;
-  background: var(--ink);
+  background: var(--accent);
   font-weight: 900;
   text-transform: uppercase;
 }
@@ -435,7 +438,7 @@ a {
   padding: 18px clamp(14px, 4vw, 52px);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: white;
+  background: rgba(255, 250, 247, 0.92);
 }
 
 .category-pill {
@@ -443,7 +446,7 @@ a {
   min-height: 42px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: white;
+  background: var(--paper);
   padding: 0 16px;
   cursor: pointer;
   font-size: 13px;
@@ -452,14 +455,14 @@ a {
 }
 
 .category-pill.active {
-  border-color: var(--ink);
+  border-color: var(--accent);
   color: white;
-  background: var(--ink);
+  background: var(--accent);
 }
 
 .category-showcase {
   padding: clamp(24px, 4vw, 52px);
-  background: white;
+  background: var(--paper);
 }
 
 .showcase-head {
@@ -479,14 +482,14 @@ a {
 
 .showcase-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
 .showcase-grid a {
   position: relative;
   overflow: hidden;
-  background: var(--ink);
+  background: #2f2528;
 }
 
 .showcase-grid img {
@@ -517,14 +520,14 @@ a {
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding: clamp(20px, 4vw, 52px);
-  background: var(--soft);
+  background: var(--sage);
 }
 
 .promo-tiles article {
   position: relative;
   min-height: 240px;
   overflow: hidden;
-  background: var(--ink);
+  background: #2f2528;
 }
 
 .promo-tiles img {
@@ -547,8 +550,8 @@ a {
 
 .video-lookbook {
   padding: clamp(26px, 4vw, 52px);
-  background: #111;
-  color: white;
+  background: var(--ink);
+  color: #fff8f1;
 }
 
 .video-head {
@@ -579,14 +582,20 @@ a {
   gap: 16px;
 }
 
+.video-grid-samples {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .video-card {
   position: relative;
   min-height: 420px;
   overflow: hidden;
-  background: #222;
+  background: #30262a;
 }
 
-.video-card img {
+.video-card img,
+.video-card video {
+  display: block;
   width: 100%;
   height: 100%;
   min-height: 420px;
@@ -652,7 +661,7 @@ a {
 .collection-tools select {
   min-height: 42px;
   border: 1px solid var(--line);
-  background: white;
+  background: rgba(255, 250, 247, 0.92);
   padding: 0 12px;
   cursor: pointer;
   font-weight: 800;
@@ -678,7 +687,7 @@ a {
   top: 106px;
   align-self: start;
   border: 1px solid var(--line);
-  background: white;
+  background: var(--paper);
   padding: 16px;
 }
 
@@ -724,7 +733,7 @@ a {
   width: 100%;
   min-height: 40px;
   border: 1px solid var(--ink);
-  background: white;
+  background: var(--paper);
   cursor: pointer;
   font-weight: 900;
   text-transform: uppercase;
@@ -738,7 +747,7 @@ a {
 
 .product-card {
   border: 1px solid var(--line);
-  background: white;
+  background: var(--paper);
 }
 
 .product-card.is-hidden {
@@ -768,7 +777,7 @@ a {
   left: 10px;
   padding: 6px 8px;
   color: white;
-  background: var(--ink);
+  background: var(--accent);
   font-size: 11px;
   font-weight: 900;
   text-transform: uppercase;
@@ -784,7 +793,7 @@ a {
   place-items: center;
   border: 0;
   border-radius: 50%;
-  background: white;
+  background: #fffaf7;
   cursor: pointer;
   font-size: 20px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
@@ -801,7 +810,7 @@ a {
   padding: 0 8px;
   border-radius: 999px;
   color: var(--deal);
-  background: #edf9f2;
+  background: #eef6ec;
   font-size: 12px;
   font-weight: 900;
 }
@@ -824,7 +833,7 @@ a {
   display: block;
   margin-top: 8px;
   color: var(--muted);
-  content: "Sizes: S  M  L  XL";
+  content: attr(data-sizes);
   font-size: 12px;
   font-weight: 800;
 }
@@ -934,8 +943,13 @@ a {
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  width: 100%;
+  border: 0;
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
 }
 
 .signup-popup {
@@ -1056,9 +1070,7 @@ a {
 
 .checkout-hero {
   padding: clamp(34px, 6vw, 72px) clamp(14px, 4vw, 52px);
-  background:
-    radial-gradient(circle at 88% 18%, rgba(226, 56, 47, 0.16), transparent 26%),
-    linear-gradient(90deg, #f5f5f5, #fff);
+  background: linear-gradient(135deg, #fff7f1 0%, var(--lavender) 48%, #f7fbf2 100%);
 }
 
 .checkout-hero h1 {
@@ -1258,9 +1270,7 @@ a {
   gap: 24px;
   align-items: stretch;
   padding: clamp(34px, 6vw, 78px) clamp(14px, 4vw, 52px);
-  background:
-    radial-gradient(circle at 86% 22%, rgba(226, 56, 47, 0.16), transparent 28%),
-    linear-gradient(90deg, #f3f3f3, #fff);
+  background: linear-gradient(135deg, #fff7f1 0%, var(--lavender) 48%, #f7fbf2 100%);
 }
 
 .profile-hero h1 {
@@ -1520,7 +1530,7 @@ a {
   align-items: center;
   border-radius: 999px;
   color: var(--deal);
-  background: #edf9f2;
+  background: #eef6ec;
   padding: 0 12px;
   font-size: 13px;
   font-weight: 900;
@@ -1597,6 +1607,190 @@ a {
   padding: 28px clamp(14px, 4vw, 52px);
   color: white;
   background: var(--ink);
+}
+
+.admin-page {
+  background: var(--soft);
+}
+
+.admin-shell {
+  padding: clamp(22px, 4vw, 52px);
+}
+
+.admin-hero {
+  margin-bottom: 22px;
+  background: white;
+  border: 1px solid var(--line);
+  padding: clamp(22px, 4vw, 42px);
+}
+
+.admin-hero h1 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(36px, 6vw, 72px);
+  line-height: 0.96;
+  text-transform: uppercase;
+}
+
+.admin-hero p:not(.eyebrow) {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.admin-login {
+  display: grid;
+  place-items: center;
+}
+
+.admin-login form,
+.admin-card {
+  border: 1px solid var(--line);
+  background: white;
+  padding: 20px;
+}
+
+.admin-login form {
+  display: grid;
+  width: min(420px, 100%);
+  gap: 10px;
+}
+
+.admin-login h2,
+.admin-card h2 {
+  margin: 0;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.admin-login label,
+.admin-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.admin-login input,
+.admin-form input,
+.order-admin-row select {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  background: white;
+  padding: 0 12px;
+}
+
+.admin-login button,
+.admin-form button,
+.admin-row button {
+  min-height: 44px;
+  border: 1px solid var(--ink);
+  color: white;
+  background: var(--ink);
+  cursor: pointer;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.admin-login span,
+.admin-form span {
+  min-height: 20px;
+  color: var(--deal);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.admin-stats article {
+  border: 1px solid var(--line);
+  background: white;
+  padding: 18px;
+}
+
+.admin-stats span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.admin-stats strong {
+  display: block;
+  margin-top: 10px;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(320px, 1.2fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.admin-card {
+  margin-bottom: 18px;
+}
+
+.admin-card-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.admin-form {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-list {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 10px;
+}
+
+.admin-row img {
+  width: 64px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--soft);
+}
+
+.admin-row strong,
+.admin-row span,
+.admin-row small {
+  display: block;
+}
+
+.admin-row span,
+.admin-row small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.order-admin-row {
+  grid-template-columns: 1fr minmax(160px, auto);
 }
 
 @media (max-width: 1100px) {
@@ -1690,7 +1884,9 @@ a {
 
   .account-grid,
   .favorite-grid,
-  .account-dashboard {
+  .account-dashboard,
+  .admin-stats,
+  .admin-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1813,5 +2009,10 @@ a {
 
   .site-footer {
     flex-direction: column;
+  }
+
+  .admin-row,
+  .order-admin-row {
+    grid-template-columns: 1fr;
   }
 }
